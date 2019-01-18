@@ -1,7 +1,7 @@
-FROM lts-alpine
+FROM node:lts-alpine
 
 # Bundle APP files
-RUN mkdir -p /app && chown -R node:node /app
+RUN mkdir -p /app
 WORKDIR /app
 COPY package*.json ./
 
@@ -12,9 +12,7 @@ RUN npm install --production
 COPY . .
 COPY --chown=node:node . .
 
-USER node
-
 # Expose the listening port of your app
-EXPOSE 8080
+EXPOSE 3000
 
 CMD [ "npm", "start" ]
