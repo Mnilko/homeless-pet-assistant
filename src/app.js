@@ -29,7 +29,7 @@ app
   .use(router.allowedMethods());
 
 const server = app.listen(PORT, () => {
-  console.log(`Server listening on port: ${PORT}`);
+  console.log(`Server listening on port, listening: ${PORT}`);
 });
 
 // async function runSample(projectId = 'homeless-pet-assistant') {
