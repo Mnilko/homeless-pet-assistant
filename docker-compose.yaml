@@ -1,7 +1,7 @@
 version: "3"
 services:
   app:
-    image: homeless-pet-assistant
+    build: .
     volumes:
       - .:/app/
       - /usr/app/node_modules
@@ -9,4 +9,4 @@ services:
       NODE_ENV: development
     ports:
       - 3000:3000
-    command: npm run dev
+    command: pm2-runtime start ecosystem.config.js --watch

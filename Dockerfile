@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM keymetrics/pm2:latest-alpine
 
 # Bundle APP files
 RUN mkdir -p /app
@@ -10,9 +10,5 @@ ENV NPM_CONFIG_LOGLEVEL warn
 RUN npm install --production
 
 COPY . .
-COPY --chown=node:node . .
 
-# Expose the listening port of your app
-EXPOSE 3000
-
-CMD [ "npm", "start" ]
+CMD [ "pm2-runtime", "start", "ecosystem.config.js" ]

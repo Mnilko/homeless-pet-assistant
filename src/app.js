@@ -13,7 +13,7 @@ app.use(bodyParser());
 router.get('/', (ctx) => {
   ctx.body = {
     status: 'success',
-    message: 'hello, world!',
+    message: 'hello, pm2 restart',
   };
 });
 
