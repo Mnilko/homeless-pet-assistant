@@ -3,7 +3,7 @@ name: default
 
 steps:
 - name: publish
-  image: plugins/docker
+  image: plugins/docker:17.12
   settings:
     username: ${DOCKER_USERNAME}
     password: ${DOCKER_PASSWORD}
