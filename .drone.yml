@@ -5,3 +5,12 @@ pipeline:
   test:
     image: node:latest
     commands: npm run test
+  publish:
+    image: plugins/docker:17.12
+    username: ${DOCKER_USERNAME}
+    password: ${DOCKER_PASSWORD}
+    repo: tamriel/pet-assistant
+    tag: latest
+    when:
+      branch: [ master ]
+      event: [ push ]
