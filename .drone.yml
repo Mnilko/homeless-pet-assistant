@@ -2,6 +2,12 @@ kind: pipeline
 name: default
 
 steps:
+- name: test
+  image: node:latest
+  commands:
+  - npm install
+  - npm test
+
 - name: publish
   image: plugins/docker:17.12
   settings:
