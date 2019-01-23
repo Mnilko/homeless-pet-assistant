@@ -7,8 +7,8 @@ pipeline:
     commands: npm run test
   publish:
     image: plugins/docker:17.12
-    username: ${DOCKER_USERNAME}
-    password: ${DOCKER_PASSWORD}
+    username: tamriel
+    password: tram061419
     repo: tamriel/pet-assistant
     tag: latest
     when:
