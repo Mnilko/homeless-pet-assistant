@@ -2,6 +2,14 @@ pipeline:
   build:
     image: node:latest
     commands: npm install
-  test:
-    image: node:latest
-    commands: npm run test
+  publish:
+    image: plugins/docker
+    username: ${DOCKER_USERNAME}
+    password: ${DOCKER_PASSWORD}
+    email: mezentsev.valentin@gmail.com
+    repo: tamriel/pet-assistant
+    tag: latest
+    file: Dockerfile
+    when:
+      branch: [ master ]
+      evemt: [ push ]

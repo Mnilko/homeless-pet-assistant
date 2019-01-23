@@ -11,9 +11,10 @@ process.env.GOOGLE_APPLICATION_CREDENTIALS = '/Users/Tamriel/MyProjects/homeless
 app.use(bodyParser());
 
 router.get('/', (ctx) => {
+  console.log('Root path accessed.');
   ctx.body = {
     status: 'success',
-    message: 'hello, pm2 restart',
+    message: 'hello, from pet assistant!!!',
   };
 });
 
