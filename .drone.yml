@@ -1,15 +1,16 @@
-pipeline:
-  build:
-    image: node:latest
-    commands: npm install
-  publish:
-    image: plugins/docker
+kind: pipeline
+name: default
+
+steps:
+- name: publish
+  image: plugins/docker
+  settings:
     username: ${DOCKER_USERNAME}
     password: ${DOCKER_PASSWORD}
-    email: mezentsev.valentin@gmail.com
     repo: tamriel/pet-assistant
     tag: latest
-    file: Dockerfile
-    when:
-      branch: [ master ]
-      evemt: [ push ]
+  when:
+    branch:
+      - master
+    event:
+      - push
