@@ -1,22 +1,7 @@
-kind: pipeline
-name: default
-
-steps:
-- name: test
-  image: node:latest
-  commands:
-  - npm install
-  - npm test
-
-- name: publish
-  image: plugins/docker:17.12
-  settings:
-    username: ${DOCKER_USERNAME}
-    password: ${DOCKER_PASSWORD}
-    repo: tamriel/pet-assistant
-    tag: latest
-  when:
-    branch:
-      - master
-    event:
-      - push
+pipeline:
+  build:
+    image: node:latest
+    commands: npm install
+  test:
+    image: node:latest
+    commands: npm run test
