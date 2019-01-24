@@ -20,6 +20,6 @@ pipeline:
     username: deployer
     port: 22
     secrets: [ ssh_key ]
-    commands:
-      - echo $${ssh_username}
-      - echo Work
+    script:
+      - sh ~/app/deploy.sh
+
