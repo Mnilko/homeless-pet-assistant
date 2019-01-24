@@ -1,25 +1,25 @@
 pipeline:
-  # build:
-  #   image: node:latest
-  #   commands: npm install
-  # test:
-  #   image: node:latest
-  #   commands: npm run test
-  # publish:
-  #   image: plugins/docker:17.12
-  #   repo: tamriel/pet-assistant
-  #   secrets: [ docker_username, docker_password ]
-  #   tag: latest
-  #   when:
-  #     branch: [ master ]
-  #     event: [ push ]
-  deploy:
-    pull: true
-    image: appleboy/drone-ssh
-    host: 167.99.253.231
-    username: deployer
-    port: 22
-    secrets: [ ssh_key ]
-    script:
-      - sh ~/app/deploy.sh
+  build:
+    image: node:latest
+    commands: npm install
+  test:
+    image: node:latest
+    commands: npm run test
+  publish:
+    image: plugins/docker:17.12
+    repo: tamriel/pet-assistant
+    secrets: [ docker_username, docker_password ]
+    tag: latest
+    when:
+      branch: [ master ]
+      event: [ push ]
+  # deploy:
+  #   pull: true
+  #   image: appleboy/drone-ssh
+  #   host: 167.99.253.231
+  #   username: deployer
+  #   port: 22
+  #   secrets: [ ssh_key ]
+  #   script:
+  #     - sh ~/app/deploy.sh
 
