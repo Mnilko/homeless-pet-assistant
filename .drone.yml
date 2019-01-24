@@ -16,9 +16,8 @@ pipeline:
   deploy:
     image: appleboy/drone-ssh
     host: 167.99.253.231
-    username: mnilko
     port: 22
-    secrets: [ ssh_key ]
+    secrets: [ ssh_key, ssh_username ]
     script:
-      - echo hello
-      - echo world
+      - echo ssh_key
+      - echo ssh_username
