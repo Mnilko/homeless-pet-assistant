@@ -14,10 +14,16 @@ pipeline:
   #     branch: [ master ]
   #     event: [ push ]
   deploy:
+    pull: true
     image: appleboy/drone-ssh
-    host: 167.99.253.231
     port: 22
-    secrets: [ ssh_key, ssh_username ]
+    secrets:
+        - source: DRONE_RSA
+          target: ssh_key
+        - source: HOST_NAME
+          target: ssh_host
+        - source: SSH_USER_NAME
+          target: ssh_username
     script:
-      - echo ssh_key
-      - echo ssh_username
+      - echo ${ssh_key}
+      - echo ${ssh_username}
